@@ -1,0 +1,1 @@
+from gohanko_dev.settings.base import *
