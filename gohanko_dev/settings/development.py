@@ -4,6 +4,11 @@ SECRET_KEY = 'django-insecure-*_4pd6)d-@vycnsob9ukyj9+cgi@%iojdjfj$+x1bjsl0f6seq
 DEBUG = True
 ALLOWED_HOSTS = []
 
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
