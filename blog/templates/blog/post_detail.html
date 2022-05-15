@@ -4,9 +4,10 @@
 
 {% block post_item_header %}
 <h4>{{ post.title }}</h4>
+
 <hr />
 {% endblock %}
 
 {% block post_item_content %}
-<p>{{ post.content }}</p>
+<p>{{ post.content|linebreaks }}</p>
 {% endblock %}

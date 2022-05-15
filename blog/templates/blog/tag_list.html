@@ -1,0 +1,14 @@
+{% extends 'blog/post_base.html' %}
+
+{% block page_title %} Posts {% endblock %}
+
+{% block post_item_header %}
+<h3>Tags</h3>
+<hr class="hr-dark" />
+{% endblock %}
+
+{% block post_item_content %}
+    {% for tag in tag_list %}
+        <a class="d-inline-block me-1 btn btn-sm btn-secondary text-white">{{ tag.name }}</a>
+    {% endfor %}
+{% endblock %}

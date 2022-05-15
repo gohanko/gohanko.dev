@@ -3,6 +3,7 @@ from blog.models import Tag, Category, Post
 
 class TagAndCategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
+    prepopulated_fields = {'slug': ('name',)}
 
 admin.site.register(Tag, TagAndCategoryAdmin)
 admin.site.register(Category, TagAndCategoryAdmin)
