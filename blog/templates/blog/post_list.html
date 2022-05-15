@@ -1,23 +1,31 @@
-{% extends 'base.html' %}
+{% extends 'blog/post_base.html' %}
 
 {% block page_title %} Posts {% endblock %}
 
-{% block content %}
-<div class="container mt-4 mb-5">
+{% block post_item_header %}
+<h3>All Posts</h3>
+<hr class="hr-dark" />
+{% endblock %}
+
+{% block post_item_content %}
+    {% for post in post_list %}
     <div class="row">
-        <div class="col-sm-8">
-            <h3>All Posts</h3>
-            <hr class="hr-dark" />
-        
-            {% for post in post_list %}
-            <div class="card mb-4">
-                {{post.content}}
-            </div>
+        <div class="col-sm-12">
+            <h4>
+                <a href="{% url 'post-detail' slug=post.slug %}">        
+                    {{ post.title }}
+                </a>
+            </h4>
+
+            <p>
+                {{ post.content | truncatewords_html:70 | safe }}
+            </p>
+
+            {% for tag in post.tags.all %}
+                <p>{{ tag.name }}</p>
             {% endfor %}
-        </div>
-        <div class="col-sm-4">
-            {% include 'blog/sidebar.html' %}
+            <hr class="hr-dark" />
         </div>
     </div>
-</div>
+    {% endfor %}
 {% endblock %}

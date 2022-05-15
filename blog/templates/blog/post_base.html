@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4 mb-5">
+    <div class="row">
+        <section class="col-md-12 col-lg-9">
+            {% block post_item_header %}{% endblock %}
+            {% block post_item_content %}{% endblock %}
+        </section>
+        <aside class="col-lg-3 d-none d-lg-block">
+            {% include 'blog/sidebar.html' %}
+        </aside>
+    </div>
+</div>
+{% endblock %}

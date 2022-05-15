@@ -1,5 +1,12 @@
-{% extends 'base.html' %}
+{% extends 'blog/post_base.html' %}
 
 {% block page_title %} Posts {% endblock %}
 
-{% block content %}{% endblock %}
+{% block post_item_header %}
+<h4>{{ post.title }}</h4>
+<hr />
+{% endblock %}
+
+{% block post_item_content %}
+<p>{{ post.content }}</p>
+{% endblock %}
