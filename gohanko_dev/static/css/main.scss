@@ -1,0 +1,54 @@
+$gray-3: #ccc;
+$gray-5: #666;
+
+a {
+    text-decoration: none;
+}
+
+.darkmode {
+    a {
+        color: $gray-3;
+    }
+
+    .post {
+        &-summary-text {
+            color: $gray-3;
+        }
+
+        &-date {
+            &-box {
+                position: absolute;
+                width: 70px;
+                font-weight: bold;
+            }
+            &-day {
+                color: $gray-5;
+                font-size: 42px;
+                height: 60px;
+                margin: 0;
+                padding-right: 7px;
+                text-align: right;
+                border-style: solid;
+                border-width: 1px;
+                border-color: $gray-5;
+                border-radius: 3px 3px 0 0;
+            }
+            &-month {
+                background-color: $gray-5;
+                padding: 1px 10px;
+                text-align: right;
+                border-radius: 0 0 3px 3px;
+            }
+        }
+
+        &-summary-box {
+            margin-left: 105px;
+        }
+
+        &-summary-title a {
+            color: white;
+            font-size: 1.14rem;
+            font-weight: 500;
+        }
+    }
+}

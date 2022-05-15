@@ -9,6 +9,9 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
+SASS_PROCESSOR_INCLUDE_DIRS  = STATICFILES_DIRS
+SASS_PRECISION = 8
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
