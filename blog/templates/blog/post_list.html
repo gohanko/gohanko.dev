@@ -3,9 +3,21 @@
 {% block page_title %} Posts {% endblock %}
 
 {% block content %}
-    {% for post in post_list %}
-    <div class="card mb-4">
-        {{post.content}}
+<div class="container mt-4 mb-5">
+    <div class="row">
+        <div class="col-sm-8">
+            <h3>All Posts</h3>
+            <hr class="hr-dark" />
+        
+            {% for post in post_list %}
+            <div class="card mb-4">
+                {{post.content}}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-sm-4">
+            {% include 'blog/sidebar.html' %}
+        </div>
     </div>
-    {% endfor %}
+</div>
 {% endblock %}
