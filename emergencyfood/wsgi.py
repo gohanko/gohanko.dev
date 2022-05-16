@@ -1,5 +1,5 @@
 """
-WSGI config for gohanko_dev project.
+WSGI config for emergencyfood project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gohanko_dev.settings.production')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'emergencyfood.settings.production')
 
 application = get_wsgi_application()

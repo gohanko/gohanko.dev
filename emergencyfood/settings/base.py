@@ -30,7 +30,7 @@ STATICFILES_FINDERS = [
     'sass_processor.finders.CssFinder',
 ]
 
-ROOT_URLCONF = 'gohanko_dev.urls'
+ROOT_URLCONF = 'emergencyfood.urls'
 
 TEMPLATES = [
     {
@@ -50,7 +50,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'gohanko_dev.wsgi.application'
+WSGI_APPLICATION = 'emergencyfood.wsgi.application'
 
 AUTH_PASSWORD_VALIDATORS = [
     {

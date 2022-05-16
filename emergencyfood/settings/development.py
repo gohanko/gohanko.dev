@@ -1,4 +1,4 @@
-from gohanko_dev.settings.base import *
+from emergencyfood.settings.base import *
 
 SECRET_KEY = 'django-insecure-*_4pd6)d-@vycnsob9ukyj9+cgi@%iojdjfj$+x1bjsl0f6seq'
 DEBUG = True

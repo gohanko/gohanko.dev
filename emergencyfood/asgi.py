@@ -1,5 +1,5 @@
 """
-ASGI config for gohanko_dev project.
+ASGI config for emergencyfood project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gohanko_dev.settings.production')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'emergencyfood.settings.production')
 
 application = get_asgi_application()
