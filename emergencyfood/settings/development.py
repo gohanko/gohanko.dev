@@ -9,6 +9,9 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 SASS_PROCESSOR_ROOT = STATICFILES_DIRS[0]
 SASS_PRECISION = 8
 

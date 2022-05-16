@@ -18,7 +18,7 @@
                 {{ post.created_on|date:'M' }}
             </div>
         </div>
-        <div class="post-summary-box d-block">
+        <div class="post-summary-box d-block mb-5">
             <h4 class="post-summary-title mb-3">
                 <a href="{% url 'post-detail' slug=post.slug %}">        
                     {{ post.title }}
@@ -26,7 +26,7 @@
             </h4>
 
             <p class="post-summary-text">
-                {{ post.content | truncatewords_html:70 | safe }}
+                {{ post.content | truncatewords_html:70 | striptags }}
             </p>
             
             <div class="post-summary-tags">
