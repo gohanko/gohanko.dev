@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'index' %}">emergencyfood.dev</a>
+        <a class="navbar-brand" href="{% url 'index' %}"><b>emergencyfood</b>.<i>dev</i></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -17,9 +17,11 @@
                         <i class="bi bi-folder2-open"></i>
                         Categories
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
                         {% for category in categories %}
-                        <li><a class="dropdown-item" href="{% url 'category-post-list' slug=category.slug %}">{{ category.name }}</a></li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'category-post-list' slug=category.slug %}">{{ category.name }}</a>
+                        </li>
                         {% endfor %}
                     </ul>
                 </li>
@@ -34,7 +36,7 @@
                         <i class="bi bi-phone"></i>
                         Apps
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="https://github.com/gohanko/asanitize" target="_blank">asanitize</a></li>
                     </ul>
                 </li>
@@ -43,7 +45,7 @@
                         <i class="bi bi-chat-dots"></i>
                         Socials
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
                         <li>
                             <a class="dropdown-item" href="https://github.com/gohanko" target="_blank">
                                 <i class="bi bi-github"></i>

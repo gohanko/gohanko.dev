@@ -1,7 +1,7 @@
 a {
   text-decoration: none; }
 
-.darkmode .post a {
+.darkmode .post a, .darkmode .list-group-item a {
   color: #ccc; }
 
 .darkmode .post-summary-text {

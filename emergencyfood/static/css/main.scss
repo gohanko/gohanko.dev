@@ -6,11 +6,13 @@ a {
 }
 
 .darkmode {
-    .post {
+    .post, .list-group-item {
         a {
             color: $gray-3;
         }
+    }
 
+    .post {
         &-summary-text {
             color: $gray-3;
         }
