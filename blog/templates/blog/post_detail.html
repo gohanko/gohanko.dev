@@ -1,13 +1,42 @@
-{% extends 'blog/post_base.html' %}
+{% extends 'blog/base.html' %}
 
 {% block page_title %} Posts {% endblock %}
 
-{% block post_item_header %}
+{% block header %}
 <h4>{{ post.title }}</h4>
+
+<div class="post-publish-info text-muted mb-2">
+    <span class="badge bg-secondary me-2 d-none d-sm-inline">Original</span>
+    <i class="bi-person d-none d-sm-inline"></i>
+    <span class="me-2 d-none d-sm-inline">{{ post.author }}</span>
+    <i class="bi-calendar-event"></i>
+    <span class="me-2">
+        {{ post.created_on }}
+    </span>
+</div>
+
+
 
 <hr />
 {% endblock %}
 
-{% block post_item_content %}
+{% block main %}
 <p>{{ post.content|linebreaks }}</p>
+
+<hr />
+
+<div class="post-summary-tags">
+    {% for category in post.categories.all %}
+    <a class="d-inline-block me-1 btn btn-sm btn-secondary text-white" href="{% url 'category-post-list' slug=category.slug %}">
+        <i class="bi bi-folder"></i>
+        <span>{{ category.name }}</span>
+    </a>
+    {% endfor %}
+    {% for tag in post.tags.all %}
+        <a class="d-inline-block me-1 btn btn-sm btn-secondary text-white" href="{% url 'tag-post-list' slug=tag.slug %}">
+            <i class="bi bi-tag"></i>
+            <span>{{ tag.name }}</span>
+        </a>
+    {% endfor %}
+</div>
 {% endblock %}

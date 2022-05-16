@@ -1,14 +1,14 @@
-{% extends 'blog/post_base.html' %}
+{% extends 'blog/base.html' %}
 
 {% block page_title %} Posts {% endblock %}
 
-{% block post_item_header %}
+{% block header %}
 <h3>Tags</h3>
 <hr class="hr-dark" />
 {% endblock %}
 
-{% block post_item_content %}
+{% block main %}
     {% for tag in tag_list %}
-        <a class="d-inline-block me-1 btn btn-sm btn-secondary text-white">{{ tag.name }}</a>
+        <a class="d-inline-block me-1 btn btn-sm btn-secondary text-white" href="{% url 'tag-post-list' slug=tag.slug %}">{{ tag.name }}</a>
     {% endfor %}
 {% endblock %}

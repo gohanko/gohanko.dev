@@ -10,8 +10,13 @@ a {
         a {
             color: $gray-3;
         }
+
         &-summary-text {
             color: $gray-3;
+        }
+
+        &-publish-info {
+            font-size: .75rem;
         }
 
         &-date {

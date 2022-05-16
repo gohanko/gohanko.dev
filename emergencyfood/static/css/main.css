@@ -7,6 +7,9 @@ a {
 .darkmode .post-summary-text {
   color: #ccc; }
 
+.darkmode .post-publish-info {
+  font-size: .75rem; }
+
 .darkmode .post-date-box {
   position: absolute;
   width: 70px;
