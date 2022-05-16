@@ -18,11 +18,15 @@
                         Categories
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                        {% for category in categories %}
-                        <li>
-                            <a class="dropdown-item" href="{% url 'category-post-list' slug=category.slug %}">{{ category.name }}</a>
-                        </li>
-                        {% endfor %}
+                        {% if categories %}
+                            {% for category in categories %}
+                            <li>
+                                <a class="dropdown-item" href="{% url 'category-post-list' slug=category.slug %}">{{ category.name }}</a>
+                            </li>
+                            {% endfor %}
+                        {% else %}
+                            <li>No categories...</li>
+                        {% endif %}
                     </ul>
                 </li>
                 <li class="nav-item">

@@ -5,14 +5,20 @@
                 Tags
             </div>
         
-            <div class="card-body">
-                {% for tag in tags %}
-                <a class="d-inline-block me-1 btn btn-sm btn-secondary text-white" href="{% url 'tag-post-list' slug=tag.slug %}">
-                    <i class="bi bi-tag"></i>
-                    <span>{{ tag.name }}</span>
-                </a>
-                {% endfor %}
-            </div>
+            {% if tags %}
+                <div class="card-body">
+                    {% for tag in tags %}
+                    <a class="d-inline-block me-1 btn btn-sm btn-secondary text-white" href="{% url 'tag-post-list' slug=tag.slug %}">
+                        <i class="bi bi-tag"></i>
+                        <span>{{ tag.name }}</span>
+                    </a>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-light bg-dark border-secondary">No tags...</li>
+                </ul>
+            {% endif %}
         </div>
     </div>
 </div>
@@ -24,12 +30,16 @@
                 Categories
             </div>
             <ul class="list-group list-group-flush">
-                {% for category in categories %}
-                    <li class="list-group-item text-light bg-dark border-secondary">
-                        <i class="bi bi-folder"></i>
-                        <a href="{% url 'category-post-list' slug=category.slug %}">{{ category.name }}</a>
-                    </li>
-                {% endfor %}
+                {% if categories %}
+                    {% for category in categories %}
+                        <li class="list-group-item text-light bg-dark border-secondary">
+                            <i class="bi bi-folder"></i>
+                            <a href="{% url 'category-post-list' slug=category.slug %}">{{ category.name }}</a>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    <li class="list-group-item text-light bg-dark border-secondary">No categories...</li>
+                {% endif %}
             </ul>
         </div>
     </div>
