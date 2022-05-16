@@ -1,7 +1,7 @@
 a {
   text-decoration: none; }
 
-.darkmode a {
+.darkmode .post a {
   color: #ccc; }
 
 .darkmode .post-summary-text {

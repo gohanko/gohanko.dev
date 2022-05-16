@@ -6,11 +6,10 @@ a {
 }
 
 .darkmode {
-    a {
-        color: $gray-3;
-    }
-
     .post {
+        a {
+            color: $gray-3;
+        }
         &-summary-text {
             color: $gray-3;
         }
