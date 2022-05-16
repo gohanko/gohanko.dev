@@ -73,4 +73,4 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-SUMMERNOTE_THEME = 'bs5'
+SUMMERNOTE_THEME = 'bs4'
