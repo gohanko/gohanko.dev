@@ -3,7 +3,7 @@ import os
 from emergencyfood.settings.base import *
 from emergencyfood.settings.development import DATABASES, SECRET_KEY
 
-SECRET_KEY = os.environ.get('SECRET_KEY', 'adsdadasd')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = False
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 
