@@ -1,0 +1,11 @@
+README.md
+.gitignore
+.dockerignore
+db.sqlite3
+.git/
+.github/
+venv/
+staticfiles/
+data/
+media/
+emergencyfood.dev/

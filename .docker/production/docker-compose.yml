@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - ~/data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=${POSTGRESS_USER}
+      - POSTGRES_PASSWORD=${POSTGRESS_PASSWORD}
+  web:
+    build:
+      context: ../../
+      dockerfile: ./.docker/production/app/Dockerfile
+    command: waitress-serve --listen 0.0.0.0:8000 emergencyfood.wsgi:application
+    volumes:
+      - ~/emergencyfood.dev/static:/var/www/emergencyfood.dev/static/
+      - ~/emergencyfood.dev/media/:/var/www/emergencyfood.dev/media/
+    expose:
+      - 8000
+    environment:
+      - POSTGRES_NAME=${POSTGRESS_NAME}
+      - POSTGRES_USER=${POSTGRESS_USER}
+      - POSTGRES_PASSWORD=${POSTGRESS_PASSWORD}
+    depends_on:
+      - db
+  nginx:
+    build: ./nginx/
+    ports: 
+      - 1337:80
+    volumes:
+      - ~/emergencyfood.dev/static:/var/www/emergencyfood.dev/static/
+      - ~/emergencyfood.dev/media/:/var/www/emergencyfood.dev/media/
+    depends_on:
+      - web
