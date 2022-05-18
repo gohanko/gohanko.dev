@@ -27,7 +27,7 @@ services:
       - POSTGRES_USER=${POSTGRESS_USER}
       - POSTGRES_PASSWORD=${POSTGRESS_PASSWORD}
     depends_on:
-      - db
+      - postgres
   nginx:
     image: fsvbj83hfwpk/emergencyfood-nginx
     build: ./nginx/
@@ -37,4 +37,4 @@ services:
       - ~/emergencyfood.dev/static:/var/www/emergencyfood.dev/static/
       - ~/emergencyfood.dev/media/:/var/www/emergencyfood.dev/media/
     depends_on:
-      - web
+      - backend
