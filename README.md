@@ -1,4 +1,4 @@
 # emergencyfood.dev
-![Status](https://github.com/gohanko/emergencyfood.dev/actions/workflows/unit_tests.yml/badge.svg)
+![Status](https://github.com/gohanko/emergencyfood.dev/actions/workflows/build-and-release.yml/badge.svg)
 
 Source code for my personal website
