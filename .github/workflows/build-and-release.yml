@@ -14,10 +14,13 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
+      - name: ls
+        run: ls -a
+
       - name: Build images
-        run: docker-compose -f .docker/production/docker-compose.yml build
+        run: docker-compose -f ./.docker/production/docker-compose.yml build
 
       - name: Release images
         run: |
           docker login
-          docker-compose -f .docker/production/docker-compose.yml push
+          docker-compose -f ./.docker/production/docker-compose.yml push
