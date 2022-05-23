@@ -1,6 +1,7 @@
 README.md
 .gitignore
 .dockerignore
+.env
 db.sqlite3
 .git/
 .github/

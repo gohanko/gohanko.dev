@@ -9,12 +9,10 @@ services:
       - ~/emergencyfood.dev/data/db:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=postgres
-      - POSTGRES_USER=${POSTGRESS_USER}
-      - POSTGRES_PASSWORD=${POSTGRESS_PASSWORD}
   backend:
     image: fsvbj83hfwpk/emergencyfood-backend
     build:
-      context: ../../
+      context: ../
       dockerfile: ./.docker/production/backend/Dockerfile
     command: waitress-serve --listen 0.0.0.0:8000 emergencyfood.wsgi:application
     volumes:
@@ -22,10 +20,6 @@ services:
       - ~/emergencyfood.dev/media/:/var/www/emergencyfood.dev/media/
     expose:
       - 8000
-    environment:
-      - POSTGRES_NAME=${POSTGRESS_NAME}
-      - POSTGRES_USER=${POSTGRESS_USER}
-      - POSTGRES_PASSWORD=${POSTGRESS_PASSWORD}
     depends_on:
       - postgres
   nginx:

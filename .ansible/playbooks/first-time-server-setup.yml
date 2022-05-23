@@ -1,0 +1,5 @@
+---
+- name: Setup a server for the first time
+  hosts:
+  tasks:
+    - name: 
