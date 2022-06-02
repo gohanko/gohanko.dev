@@ -27,7 +27,7 @@ class TagListView(BaseView, ListView):
     model = Tag
     template_name = 'blog/tag/tag_list.html'
 
-class TagCreateView(BaseView, CreateView. PermissionRequiredMixin):
+class TagCreateView(BaseView, CreateView, PermissionRequiredMixin):
     model = Tag
     template_name = 'blog/tag/tag_form.html'
     fields = ['name']
