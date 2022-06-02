@@ -9,6 +9,6 @@
 
 {% block main %}
     {% for tag in tag_list %}
-        <a class="d-inline-block me-1 btn btn-sm btn-secondary text-white" href="{% url 'tag-post-list' slug=tag.slug %}">{{ tag.name }}</a>
+        <a class="d-inline-block me-1 btn btn-sm btn-secondary text-white" href="{% url 'post-list-filtered-by-tag' slug=tag.slug %}">{{ tag.name }}</a>
     {% endfor %}
 {% endblock %}

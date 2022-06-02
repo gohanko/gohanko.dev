@@ -8,7 +8,7 @@
             {% if tags %}
                 <div class="card-body">
                     {% for tag in tags %}
-                    <a class="d-inline-block me-1 btn btn-sm btn-secondary text-white" href="{% url 'tag-post-list' slug=tag.slug %}">
+                    <a class="d-inline-block me-1 btn btn-sm btn-secondary text-white" href="{% url 'post-list-filtered-by-tag' slug=tag.slug %}">
                         <i class="bi bi-tag"></i>
                         <span>{{ tag.name }}</span>
                     </a>
@@ -34,7 +34,7 @@
                     {% for category in categories %}
                         <li class="list-group-item text-light bg-dark border-secondary">
                             <i class="bi bi-folder"></i>
-                            <a href="{% url 'category-post-list' slug=category.slug %}">{{ category.name }}</a>
+                            <a href="{% url 'post-list-filtered-by-category' slug=category.slug %}">{{ category.name }}</a>
                         </li>
                     {% endfor %}
                 {% else %}

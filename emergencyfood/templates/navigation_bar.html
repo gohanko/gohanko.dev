@@ -21,7 +21,7 @@
                         {% if categories %}
                             {% for category in categories %}
                             <li>
-                                <a class="dropdown-item" href="{% url 'category-post-list' slug=category.slug %}">{{ category.name }}</a>
+                                <a class="dropdown-item" href="{% url 'post-list-filtered-by-category' slug=category.slug %}">{{ category.name }}</a>
                             </li>
                             {% endfor %}
                         {% else %}
@@ -32,7 +32,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{% url 'post-tags' %}">
+                    <a class="nav-link" aria-current="page" href="{% url 'tag-list' %}">
                         <i class="bi bi-tag"></i>
                         Tags
                     </a>
