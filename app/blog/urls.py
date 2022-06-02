@@ -27,15 +27,15 @@ urlpatterns = [
     path('category/update/', CategoryUpdateView.as_view(), name='category-update'),
     path('category/delete/', CategoryDeleteView.as_view(), name='category-delete'),
     
-    path('tags/<slug:slug>', PostListFilteredByTag.as_view(), name='post-list-filtered-by-tag'),
-    path('tags/', TagListView.as_view(), name='tag-list'),
+    path('tags/<slug:slug>/', PostListFilteredByTag.as_view(), name='post-list-filtered-by-tag'),
     path('tags/create/', TagCreateView.as_view(), name='tag-create'),
     path('tags/update/', TagUpdateView.as_view(), name='tag-update'),
     path('tags/delete/', TagDeleteView.as_view(), name='tag-delete'),
+    path('tags/', TagListView.as_view(), name='tag-list'),
     
-    path('posts/', PostListView.as_view(), name='post-list'),
-    path('posts/<slug:slug>/', PostDetailView.as_view(), name='post-detail'),
     path('posts/create/', PostCreateView.as_view(), name='post-create'),
     path('posts/update/', PostUpdateView.as_view(), name='post-update'),
     path('posts/delete/', PostDeleteView.as_view(), name='post-delete'),
+    path('posts/<slug:slug>/', PostDetailView.as_view(), name='post-detail'),
+    path('posts/', PostListView.as_view(), name='post-list'),
 ]
