@@ -2,7 +2,8 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
-from blog.models import Category, Post
+from blog.models.post import Post
+from blog.models.category import Category
 from blog.views.base import BaseView
 
 class PostListFilteredByCategory(BaseView, ListView):

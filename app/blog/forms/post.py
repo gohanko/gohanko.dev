@@ -3,12 +3,9 @@ from django.contrib.auth.models import User
 
 from django_summernote.widgets import SummernoteWidget
 
-from blog.models import (
-    POST_STATUS,
-    Post,
-    Tag,
-    Category,
-)
+from blog.models.post import POST_STATUS, Post
+from blog.models.tag import Tag
+from blog.models.category import Category
 
 class PostCreateForm(forms.ModelForm):
     class Meta:

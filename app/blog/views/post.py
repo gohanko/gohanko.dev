@@ -4,7 +4,7 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 
-from blog.models import Post, POST_STATUS
+from blog.models.post import Post, POST_STATUS
 from blog.forms.post import PostCreateForm
 from blog.views.base import BaseView
 

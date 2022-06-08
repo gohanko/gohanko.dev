@@ -4,7 +4,9 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
 from blog.views.base import BaseView
-from blog.models import Post, Tag
+
+from blog.models.post import Post
+from blog.models.tag import Tag
 
 class PostListFilteredByTag(BaseView, ListView):
     model = Post
