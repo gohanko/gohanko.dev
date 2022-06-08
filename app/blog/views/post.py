@@ -2,9 +2,10 @@ from django.urls import reverse_lazy
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
 
 from blog.models import Post, POST_STATUS
+from blog.forms.post import PostCreateForm
 from blog.views.base import BaseView
 
 
@@ -28,14 +29,8 @@ class PostDetailView(BaseView, DetailView):
 class PostCreateView(BaseView, CreateView, PermissionRequiredMixin):
     model = Post
     template_name = 'blog/post/post_form.html'
-    fields = [
-        'title',
-        'author',
-        'content',
-        'status',
-        'categories',
-        'tags'
-    ]
+    form_class = PostCreateForm
+    success_url = reverse_lazy('post-list')
 
 class PostUpdateView(BaseView, UpdateView, PermissionRequiredMixin):
     model = Post

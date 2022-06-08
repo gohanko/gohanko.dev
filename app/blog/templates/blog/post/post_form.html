@@ -4,7 +4,15 @@
 
 {% block main %}
 <form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
+
+    {% for form_item in form %}
+    <div class="mb-3 row">
+        <label for="title" class="col-sm-2 col-form-label">{{ form_item.label }}</label>
+        <div class="col-sm-10">
+            {{ form_item }}
+        </div>
+    </div>
+    {% endfor %}
+    <input type="submit" value="Save" class="btn btn-secondary">
 </form>
 {% endblock main %}

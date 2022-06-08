@@ -6,7 +6,7 @@
 <h4>{{ post.title }}</h4>
 
 <div class="post-publish-info text-muted mb-2">
-    <span class="badge bg-secondary me-2 d-none d-sm-inline">Original</span>
+    <span class="badge bg-secondary me-2 d-none d-sm-inline">{{ post.get_status_display }}</span>
     <i class="bi-person d-none d-sm-inline"></i>
     <span class="me-2 d-none d-sm-inline">{{ post.author }}</span>
     <i class="bi-calendar-event"></i>
