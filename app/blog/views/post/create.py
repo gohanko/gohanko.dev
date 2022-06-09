@@ -1,13 +1,13 @@
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.views.generic.edit import CreateView
 
 from blog.views.base import BaseView
-from blog.models.post import Post, POST_STATUS
-from blog.forms.post import PostCreateForm
+from blog.models.post import Post
+from blog.forms.post import PostForm
 
-class PostCreateView(LoginRequiredMixin, BaseView, CreateView):
+class PostCreateView(LoginRequiredMixin, PermissionRequiredMixin, BaseView, CreateView):
     model = Post
-    template_name = 'blog/post/post_form.html'
-    form_class = PostCreateForm
+    form_class = PostForm
     success_url = reverse_lazy('post-list')
+    permission_required = ('post.add_post')

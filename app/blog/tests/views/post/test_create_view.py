@@ -3,7 +3,7 @@ from django.test.client import Client
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 
-class TestPostCreateview(TestCase):
+class TestLoggedInRequired(TestCase):
     def setUp(self):
         self.client = Client()
         self.user = User.objects.create_user('test_user', 'test@localhost', 'test_password')
@@ -16,3 +16,7 @@ class TestPostCreateview(TestCase):
         self.client.login(username='test_user', password='test_password')
         response = self.client.get(reverse_lazy('post-create'))
         self.assertEqual(response.status_code, 200)
+
+class TestRequiredPermission(TestCase):
+    def setUp(self):
+        pass

@@ -5,4 +5,3 @@ from blog.models.post import Post, POST_STATUS
 
 class PostDetailView(BaseView, DetailView):
     model = Post
-    template_name = 'blog/post/post_detail.html'

@@ -7,7 +7,7 @@ from blog.models.post import POST_STATUS, Post
 from blog.models.tag import Tag
 from blog.models.category import Category
 
-class PostCreateForm(forms.ModelForm):
+class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = [

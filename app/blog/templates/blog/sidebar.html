@@ -1,8 +1,10 @@
+{% if user.is_authenticated %}
 <div class="row">
     <div class="col-sm-12">
         <a class="btn btn-success" href="{% url 'post-create' %}">Create Post</a>
     </div>
 </div>
+{% endif %}
 
 <div class="row mt-3">
     <div class="col-md-12">
