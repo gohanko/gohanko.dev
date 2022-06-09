@@ -16,7 +16,3 @@ class TestLoggedInRequired(TestCase):
         self.client.login(username='test_user', password='test_password')
         response = self.client.get(reverse_lazy('post-create'))
         self.assertEqual(response.status_code, 200)
-
-class TestRequiredPermission(TestCase):
-    def setUp(self):
-        pass
