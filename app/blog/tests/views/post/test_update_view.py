@@ -20,7 +20,7 @@ class TestPostUpdateView(TestCase):
         )
 
     def test_get_fail_when_not_logged_in(self):
-        response = self.client.get(reverse_lazy('post-update'), {'slug': 'test-title'})
+        response = self.client.get(reverse_lazy('post-update'), slug='test-title')
         self.assertEqual(response.status_code, 302)
 
     def test_get_pass_when_logged_in(self):
