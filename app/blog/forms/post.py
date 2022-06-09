@@ -20,9 +20,9 @@ class PostForm(forms.ModelForm):
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'id': 'title', 'type': 'text'}),
-            'author': forms.Select(choices=User.objects.all(), attrs={'class': 'form-select'}),
+            'author': forms.Select(attrs={'class': 'form-select'}),
             'status': forms.Select(choices=POST_STATUS, attrs={'class': 'form-select'}),
             'content': SummernoteWidget(attrs={'summernote': {'width': '100%'}}),
-            'categories': forms.Select(choices=TagOrCategory.objects.filter(type=1), attrs={'class': 'form-select', 'multiple': ''}),
-            'tags': forms.Select(choices=TagOrCategory.objects.filter(type=0), attrs={'class': 'form-select', 'multiple': ''}),
+            'categories': forms.Select(attrs={'class': 'form-select', 'multiple': ''}),
+            'tags': forms.Select(attrs={'class': 'form-select', 'multiple': ''}),
         }
