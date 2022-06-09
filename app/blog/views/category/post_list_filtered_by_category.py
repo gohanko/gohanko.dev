@@ -1,10 +1,8 @@
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.contrib.auth.mixins import PermissionRequiredMixin
 
+from blog.views.base import BaseView
 from blog.models.post import Post
 from blog.models.category import Category
-from blog.views.base import BaseView
 
 class PostListFilteredByCategory(BaseView, ListView):
     model = Post
@@ -22,16 +20,3 @@ class PostListFilteredByCategory(BaseView, ListView):
             data['header_title'] = '404 - Category not found!'
 
         return data
-
-class CategoryCreateView(BaseView, CreateView, PermissionRequiredMixin):
-    model = Category
-    template_name = 'blog/category/category_form.html'
-    fields = ['name']
-
-class CategoryUpdateView(BaseView, UpdateView, PermissionRequiredMixin):
-    model = Category
-    template_name = 'blog/category/category_update_form.html'
-    fields = ['name']
-
-class CategoryDeleteView(BaseView, UpdateView, PermissionRequiredMixin):
-    model = Category

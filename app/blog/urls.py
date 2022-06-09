@@ -13,13 +13,7 @@ from blog.views.tag import (
     TagUpdateView,
     TagDeleteView,
 )
-from blog.views.post import (
-    PostListView,
-    PostDetailView,
-    PostCreateView,
-    PostUpdateView,
-    PostDeleteView,
-)
+from blog.views.post import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
 
 urlpatterns = [
     path('category/<slug:slug>/', PostListFilteredByCategory.as_view(), name='post-list-filtered-by-category'),
