@@ -3,7 +3,7 @@ from django.test.client import Client
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 
-from blog.models.post import Post, POST_STATUS
+from blog.models import Post, POST_STATUS
 
 class TestLoggedInRequired(TestCase):
     def setUp(self):

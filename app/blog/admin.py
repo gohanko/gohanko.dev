@@ -1,16 +1,14 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 
-from blog.models.post import Post
-from blog.models.tag import Tag
-from blog.models.category import Category
+from blog.models import Post
+from blog.models import TagOrCategory
 
-class TagAndCategoryAdmin(admin.ModelAdmin):
+class TagOrCategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
     prepopulated_fields = {'slug': ('name',)}
 
-admin.site.register(Tag, TagAndCategoryAdmin)
-admin.site.register(Category, TagAndCategoryAdmin)
+admin.site.register(TagOrCategory, TagOrCategoryAdmin)
 
 class PostAdmin(SummernoteModelAdmin):
     list_display = ('title', 'slug', 'status', 'created_on', 'updated_on')

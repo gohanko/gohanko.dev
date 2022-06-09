@@ -2,8 +2,22 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 
-from blog.models.category import Category
-from blog.models.tag import Tag
+TAG_OR_CATEGORY_TYPE = (
+    (0, 'Tag'),
+    (1, 'Category')
+)
+
+class TagOrCategory(models.Model):
+    name = models.CharField(max_length=50, primary_key=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    type = models.IntegerField(choices=TAG_OR_CATEGORY_TYPE, default=0)
+
+    def __str__(self):
+        return self.name
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(TagOrCategory, self).save(*args, **kwargs)
 
 POST_STATUS = (
     (0, "Draft"),
@@ -19,8 +33,8 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=POST_STATUS, default=0)
-    categories = models.ManyToManyField(Category, blank=True)
-    tags = models.ManyToManyField(Tag, blank=True)
+    categories = models.ManyToManyField(TagOrCategory, blank=True)
+    tags = models.ManyToManyField(TagOrCategory, blank=True)
 
     class Meta:
         ordering = ['-created_on']
@@ -31,3 +45,4 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
+

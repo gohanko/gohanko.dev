@@ -3,9 +3,8 @@ from django.contrib.auth.models import User
 
 from django_summernote.widgets import SummernoteWidget
 
-from blog.models.post import POST_STATUS, Post
-from blog.models.tag import Tag
-from blog.models.category import Category
+from blog.models import POST_STATUS, Post
+from blog.models import TagOrCategory
 
 class PostForm(forms.ModelForm):
     class Meta:
@@ -24,6 +23,6 @@ class PostForm(forms.ModelForm):
             'author': forms.Select(choices=User.objects.all(), attrs={'class': 'form-select'}),
             'status': forms.Select(choices=POST_STATUS, attrs={'class': 'form-select'}),
             'content': SummernoteWidget(attrs={'summernote': {'width': '100%'}}),
-            'categories': forms.Select(choices=Category.objects.all(), attrs={'class': 'form-select', 'multiple': ''}),
-            'tags': forms.Select(choices=Tag.objects.all(), attrs={'class': 'form-select', 'multiple': ''}),
+            'categories': forms.Select(choices=TagOrCategory.objects.filter(type=1), attrs={'class': 'form-select', 'multiple': ''}),
+            'tags': forms.Select(choices=TagOrCategory.objects.filter(type=0), attrs={'class': 'form-select', 'multiple': ''}),
         }

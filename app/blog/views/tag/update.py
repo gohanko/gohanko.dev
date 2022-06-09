@@ -1,9 +1,9 @@
 from django.views.generic.edit import UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from blog.views.base import BaseView
-from blog.models.tag import Tag
+from blog.models import TagOrCategory
 
-class TagUpdateView(BaseView, UpdateView):
-    model = Tag
-    template_name = 'blog/tag/tag_update_form.html'
+class TagUpdateView(LoginRequiredMixin, BaseView, UpdateView):
+    model = TagOrCategory
     fields = ['name']
