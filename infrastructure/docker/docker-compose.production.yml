@@ -1,6 +1,11 @@
 version: '3.9'
 
 services:
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
   postgres:
     image: fsvbj83hfwpk/emergencyfood-postgres
     build:
@@ -12,8 +17,8 @@ services:
   backend:
     image: fsvbj83hfwpk/emergencyfood-backend
     build:
-      context: ../
-      dockerfile: ./.docker/production/backend/Dockerfile
+      context: ../../
+      dockerfile: ./infrastructure/docker/backend/Dockerfile
     command: waitress-serve --listen 0.0.0.0:8000 emergencyfood.wsgi:application
     volumes:
       - ~/emergencyfood.dev/static:/var/www/emergencyfood.dev/static/
@@ -30,5 +35,7 @@ services:
     volumes:
       - ~/emergencyfood.dev/static:/var/www/emergencyfood.dev/static/
       - ~/emergencyfood.dev/media/:/var/www/emergencyfood.dev/media/
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
     depends_on:
       - backend
