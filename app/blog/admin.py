@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 
-from blog.models import Post
-from blog.models import TagOrCategory
+from blog.models.post import Post
+from blog.models.tag_or_category import TagOrCategory
 
 class TagOrCategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)

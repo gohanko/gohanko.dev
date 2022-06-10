@@ -2,8 +2,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView
 
 from blog.views.base import BaseView
-from blog.models import TagOrCategory
+from blog.models.tag_or_category import TagOrCategory
 
-class TagCreateView(LoginRequiredMixin, BaseView, CreateView):
+class TagOrCategoryCreateView(LoginRequiredMixin, BaseView, CreateView):
     model = TagOrCategory
     fields = ['name']

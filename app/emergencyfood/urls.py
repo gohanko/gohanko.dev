@@ -20,11 +20,14 @@ from django.conf.urls.static import static
 from django.views.generic.base import RedirectView, TemplateView
 
 urlpatterns = [
-    path('summernote/', include('django_summernote.urls')),
+    path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+
+    path('summernote/', include('django_summernote.urls')),
+    
     path('', include('blog.urls')),
     path('', RedirectView.as_view(pattern_name='post-list'), name='index'),
-    path("robots.txt", TemplateView.as_view(template_name="main/robots.txt", content_type="text/plain")),
+    path('robots.txt', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
 ]
 
 if settings.DEBUG:

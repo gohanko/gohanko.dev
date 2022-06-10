@@ -3,7 +3,7 @@ from django.test.client import Client
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 
-from blog.models import TagOrCategory
+from blog.models.tag_or_category import TagOrCategory
 
 class TestLoggedInRequired(TestCase):
     def setUp(self):

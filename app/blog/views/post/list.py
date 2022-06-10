@@ -1,7 +1,7 @@
 from django.views.generic.list import ListView
 
 from blog.views.base import BaseView
-from blog.models import Post, POST_STATUS
+from blog.models.post import Post, POST_STATUS
 
 class PostListView(BaseView, ListView):
     model = Post

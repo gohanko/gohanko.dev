@@ -1,10 +1,10 @@
 from django.views.generic.list import ListView
 
 from blog.views.base import BaseView
-from blog.models import Post
-from blog.models import TagOrCategory
+from blog.models.post import Post
+from blog.models.tag_or_category import TagOrCategory
 
-class PostListFilteredByTag(BaseView, ListView):
+class PostListFilteredByTagOrCategory(BaseView, ListView):
     model = Post
 
     def get_queryset(self):
@@ -12,7 +12,7 @@ class PostListFilteredByTag(BaseView, ListView):
 
     def get_context_data(self, *args, **kwargs):
         data = super().get_context_data(*args, **kwargs)
-        tag = TagOrCategory.objects.filter(slug=self.kwargs.get('slug'), type=0).first()
+        tag = TagOrCategory.objects.filter(slug=self.kwargs.get('slug')).first()
         if tag:
             data['header_title'] = tag.name
         else:

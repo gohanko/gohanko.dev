@@ -1,4 +1,4 @@
-from blog.models import TagOrCategory
+from blog.models.tag_or_category import TagOrCategory
 
 class BaseView:
     def get_context_data(self, *args, **kwargs):

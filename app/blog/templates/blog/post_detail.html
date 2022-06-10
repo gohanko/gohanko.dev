@@ -22,8 +22,14 @@
 
 {% block main %}
 <p>{{ post.content|safe  }}</p>
-
 <hr />
+
+{% if user.is_authenticated %}
+<div class="btn-group float-end" role="group" aria-label="Basic mixed styles example">
+    <a class="btn btn-danger" href="{% url 'post-delete' slug=post.slug %}">Delete Post</a>
+    <a class="btn btn-primary" href="{% url 'post-update' slug=post.slug %}">Edit Post</a>
+</div>
+{% endif %}
 
 <div class="post-summary-tags">
     {% for category in post.categories.all %}
