@@ -8,6 +8,10 @@
 {% endblock %}
 
 {% block main %}
+    {% if not post_list %}
+    <p>No posts...</p>
+    {% endif %}
+
     {% for post in post_list %}
     <article class="post-summary d-none d-md-block font-sairas">
         <div class="post-date-box">

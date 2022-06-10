@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from blog.views.base import BaseView
 from blog.models import Post
-from blog.forms.post import PostForm
+from blog.forms.post_form import PostForm
 
 class PostUpdateView(LoginRequiredMixin, BaseView, UpdateView):
     model = Post

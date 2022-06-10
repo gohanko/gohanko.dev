@@ -4,7 +4,7 @@ from django.views.generic.edit import CreateView
 
 from blog.views.base import BaseView
 from blog.models import Post
-from blog.forms.post import PostForm
+from blog.forms.post_form import PostForm
 
 class PostCreateView(LoginRequiredMixin, BaseView, CreateView):
     model = Post
