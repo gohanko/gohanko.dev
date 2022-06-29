@@ -7,7 +7,7 @@ from blog.views.tag_or_category.api import TagOrCategoryListAPIView, TagOrCatego
 
 urlpatterns = [
     path('api/v1/tags_or_category/', TagOrCategoryListAPIView.as_view(), name='api-tag-or-category-list'),
-    path('api/v1/tags_or_category/<int:pk>/', TagOrCategoryDetailAPIView.as_view(), name='api-tag-or-category-crud'),
+    path('api/v1/tags_or_category/<str:pk>/', TagOrCategoryDetailAPIView.as_view(), name='api-tag-or-category-crud'),
 
     path('tags_or_category/create/', TagOrCategoryCreateView.as_view(), name='tag-create'),
     path('tags_or_category/update/<slug:slug>/', TagOrCategoryUpdateView.as_view(), name='tag-update'),
